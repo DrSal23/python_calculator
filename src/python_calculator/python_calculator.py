@@ -84,6 +84,8 @@ def evaluate_expression(expression):
     expression = re.sub(r'\b([IVXLCDM]+)\b', lambda match: str(roman_to_int(match.group(0))), expression)
     
     try:
+        expression = expression.replace("[", "(")
+        expression = expression.replace("]",")")
         result = eval(expression)  # Evaluate the expression
         
         if result == 0:
