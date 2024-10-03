@@ -110,6 +110,10 @@ def main():
     Returns:
         None
     """
+    if len(sys.argv) == 2:  # If no input provided
+        rn = sys.argv[1]
+        print(roman_to_int(rn))
+        return
     if len(sys.argv) < 2:  # If no input provided
         print("I don't know how to read this.")
         return
