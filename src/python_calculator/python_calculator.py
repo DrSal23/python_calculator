@@ -22,6 +22,8 @@ def roman_to_int(roman):
     """
     total = 0
     prev_value = 0
+    if not (bool(re.search(r"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",roman))):
+        return "I don't know how to read this."
     
     # Loop through each character from right to left
     for char in reversed(roman): 
@@ -111,9 +113,13 @@ def main():
         None
     """
     if len(sys.argv) == 2:  # If no input provided
-        rn = sys.argv[1]
-        print(roman_to_int(rn))
-        return
+        try:
+            rn = sys.argv[1]
+            print(roman_to_int(rn))
+        except KeyError:
+            print("I don't know how to read this.")
+        return 
+
     if len(sys.argv) < 2:  # If no input provided
         print("I don't know how to read this.")
         return

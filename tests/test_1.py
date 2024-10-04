@@ -71,7 +71,7 @@ def test_main_no_input(monkeypatch, capsys):
 
 # Test case for handling insufficient arguments
 def test_main_insufficient_arguments(monkeypatch, capsys):
-    monkeypatch.setattr('sys.argv', ['python_calculator', 'V'])
+    monkeypatch.setattr('sys.argv', ['python_calculator', '2'])
     main()
     captured = capsys.readouterr()
     assert captured.out.strip() == "I don't know how to read this."
